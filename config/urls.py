@@ -19,5 +19,7 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),  #bu djangodagi tayyor shablon
+    path('accounts/', include('accounts.urls')),    #bu sign up qilish uchun
     path('', include('WebBlog.urls')),
 ]

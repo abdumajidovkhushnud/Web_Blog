@@ -10,6 +10,19 @@
     <header>
         <h1><a href="{% url 'home' %}">Personal Blog</a></h1>
     </header>
+    {% if user.is_authenticated %}
+        <p> Welcome, {{user.username }}!</p>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Exit Site</button>
+        </form>
+    {% else %}
+        <p><a href="{% url 'login' %}">Enter Site</a></p>
+        <form method="post" action="{% url 'signup' %}">
+            {% csrf_token %}
+            <button type="submit">Sign Up</button>
+        </form>
+    {% endif %}
     <div>
         {% block content %}
         {% endblock content %}

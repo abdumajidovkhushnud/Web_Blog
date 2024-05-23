@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'WebBlog',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -118,6 +119,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]    #endi bizni static fayllarimizni ichiniyam qaraydi bu 
+
+LOGIN_REDIRECT_URL = 'home'     #bu logindan keyin home pagega qaytarib qöyaveradi
+LOGOUT_REDIRECT_URL = 'home'   #bu logout dan keyin home pagega qaytarib qöyaveradi
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
